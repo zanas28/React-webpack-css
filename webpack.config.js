@@ -28,23 +28,30 @@ module.exports = {
       loaders: ['babel-loader'],
       include: path.join(__dirname, '/src')
     },
+    {
+      test: /\.(css|scss)$/,
+      loaders: ['style-loader', {
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          localIdentName: '[name]_[local]__[hash:base64:5]'
+        },
+        
+      }],
+      include: [path.join(__dirname, '/src')],
+      exclude: [path.join(__dirname, '/node_modules/antd')]
+    },
+    // Without Object on className
     // {
     //   test: /\.(css|scss)$/,
-    //   loaders: ['style-loader', {
-    //     loader: 'css-loader',
-    //     query: {
-    //       modules: true,
-    //       localIdentName: '[name]_[local]__[hash:base64:5]'
-    //     },
-        
-    //   }],
-    //   include: [path.join(__dirname, '/src')],
-    //   exclude: [path.join(__dirname, '/node_modules')]
-    // }
+    //   loaders: ['style-loader', 'css-loader'],
+    //   // include: path.join(__dirname, '/src')
+    // }]
     {
       test: /\.(css|scss)$/,
       loaders: ['style-loader', 'css-loader'],
-      // include: path.join(__dirname, '/src')
+      include: path.join(__dirname, '/node_modules/antd'),
+      exclude: path.join(__dirname, '/src')
     }]
   }
 };
