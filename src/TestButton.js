@@ -1,7 +1,9 @@
 import React from 'react';
-import { Layout, Button } from 'antd';
+import { Layout, Button, Carousel } from 'antd';
 import styles from './styles.css';
 // import './styles.css';
+
+// Remember to using File loader to upload photo
 
 export default class HolaButton extends React.Component {
     
@@ -26,23 +28,20 @@ export default class HolaButton extends React.Component {
 
         return(
             <Layout>
-                <Header style={{backgroundColor:'#E1F5FE'}}>
+                <Header style={{backgroundColor:'#37474F'}}>
                     <div className={styles.header}>
                         <Button type="default">Blog</Button>
                         <Button type="default">Contact Us</Button>
                     </div>
                 </Header>
-                <Content style={{backgroundColor:'#FFFFFF'}}>
-                    <p className={styles.myStyle}>Lorem ipsum laljflajlfjlajlfjlajljgkljlgjlajglladgllajdlgjlajdlgjl;adjg;lad<br/>
-                        k;lak;fkl;adkl;fk;ladk;fk;adkfl;k;adlkg;ljkd;aljgl;jad;lgj;laljflajlfjlajlfjlajljgkljlgjlajglladgllajdlgjlajdlgjl
-                        mladjlfjladjl;fjadl;jfl;daf
-                        klmjadljkflajdfa
-                        <br/>
-                        kjakldjfkljadljfladjlfjldajfl
-                        kljdalfjladjfldjaljflkadjlfjladjfljdalkjflkdjfkljdalkjflkajdlkfjlkad
-                    </p>
+                <Content>
+                    <h1>Freetime Books Store</h1>
+                    <Carousel autoplay>
+                        <div><img src={require('./images/book_1.jpg')} alt='books' style={{width:304,height:228}}></img></div>
+                        <div><img src={require('./images/book_2.jpg')} style={{width:304,height:228}}></img></div>
+                    </Carousel>
                 </Content>
-                <Footer className='footer'>
+                <Footer className={styles.footer}>
                     <div style={{textAlign:'center'}}>
                         <p style={{fontWeight:'bold'}}>Copyright Freetime Inc</p>
                     </div>

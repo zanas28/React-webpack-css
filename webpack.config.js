@@ -52,6 +52,10 @@ module.exports = {
       loaders: ['style-loader', 'css-loader'],
       include: path.join(__dirname, '/node_modules/antd'),
       exclude: path.join(__dirname, '/src')
+    },
+    {
+      test: /\.(png|jpg)$/,
+      loader: 'url-loader?limit=8192'
     }]
   }
 };
